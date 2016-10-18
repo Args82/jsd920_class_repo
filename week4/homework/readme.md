@@ -1,4 +1,4 @@
-## Week 3 Homework
+## Week 4 Homework
 
 ### Assignment Due on Thursday, 10/13:
 
@@ -10,7 +10,7 @@
 * Read [w3Schools JS Mistakes](http://www.w3schools.com/js/js_mistakes.asp)
 * Read [HTML DOM Document](http://www.w3schools.com/js/js_htmldom_document.asp)
 
-### Assignment Due on Tuesday, 10/11:
+### Assignment Due on Tuesday, 10/18:
 
 #### Coding Assignment
 * 99_bottles_DOM
@@ -24,3 +24,6 @@
 #### Optional
 * Reading [Intro To jQuery](http://www.w3schools.com/jquery/jquery_intro.asp) - W3Schools
 * Reading [How jQuery Works](https://learn.jquery.com/about-jquery/how-jquery-works/)
+* [Adding A Sublime Text 3 Build](http://michaelcrump.net/getting-sublime-3-to-launch-your-html-page-in-a-browser-with-a-key-combo/)
+* [Sublime Keyboard Shortcuts](https://www.viget.com/articles/my-overused-sublime-text-keyboard-shortcuts)
+* Video: [Intro To Handlebars.js](https://www.youtube.com/watch?v=SPaw1ETzS2c)

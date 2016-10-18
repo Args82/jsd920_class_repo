@@ -20,3 +20,13 @@
 
 * [Angular in 90ish minutes](http://www.hongkiat.com/blog/angularjs-tutorials-screencast/)
 
+#### Sublime 
+* [Adding A Sublime Text 3 Build](http://michaelcrump.net/getting-sublime-3-to-launch-your-html-page-in-a-browser-with-a-key-combo/)
+* [Sublime Keyboard Shortcuts](https://www.viget.com/articles/my-overused-sublime-text-keyboard-shortcuts)
+
+#### Troubleshooting
+* [Try Catch Blocks](http://www.w3schools.com/js/js_errors.asp)
+
+#### Templeting
+* Video: [Intro To Handlebars.js](https://www.youtube.com/watch?v=SPaw1ETzS2c)
+
