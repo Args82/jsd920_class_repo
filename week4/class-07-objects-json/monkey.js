@@ -4,6 +4,7 @@
 * species
 * foodsEaten
 
+
 And the following methods:
 * eatSomething(thingAsString)
 * introduce: producers a string introducing itself, including its name, species, and what it's eaten.
@@ -14,3 +15,21 @@ Exercise your monkeys by retrieving their properties and using their methods. Pr
 for retrieving properties (dot notation and brackets).
 
 */
+
+
+var monkey = {}
+
+monkey.name = "Baboo",
+monkey.species = "Golden Monkey";
+monkey.foodsEaten = ['tree bark', ' fruit',' bamboo leaves'];
+
+
+
+
+	 
+
+console.log("Hello, my name is " + monkey.name + ", I am a " + monkey.species + " and I eat " +  monkey.foodsEaten);
+	
+	
+
+
