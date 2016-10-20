@@ -11,5 +11,26 @@
 
 // similar to window.onload
 $(document).ready(function () {
-	// YOUR CODE HERE
-})
+
+
+	var list = $('#list')
+    var input = $('#new-item')
+    $('li').on('click', '.archive',function(){
+        	$(this).parent().remove();
+	    	});
+
+    $('#clickme').click(function(event){
+      event.preventDefault()
+      if(input.val() == "") {alert("type something")}
+      else { 
+        var item = $('<li>').html(input.val()) 
+        var archive = $('<span>').html(" archive ").addClass('archive')//adds content "archive" to item
+        item.prepend(archive)//adds content infront of element
+        list.append(item)//adds content at end
+        
+        input.val("").focus()
+
+    })
+      }//else
+    })//click event
+})//ready event
