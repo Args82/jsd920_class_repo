@@ -18,5 +18,10 @@
 * Continue working on HelpFunctions 
 
 #### Optional
+<<<<<<< HEAD
+=======
+* [Callback Functions in JS](https://www.impressivewebs.com/callback-functions-javascript/)
+* [Functions As First Class Objects](http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/)
+>>>>>>> 711d86d891e5a8e2c249382016b629112a6fc57b
 
 

@@ -32,9 +32,40 @@ Open Weather Map Instructions:
 
 */
 
+// }
 
 $(document).ready(function () {
-  var apiKey = '19ab861f15cfd2e8216a3be1ed615598';
-  var weatherUrl = '';
+
+	 // var list = $('#list')
+  //    var input = $('#weather')
+
+    // $('#clickme').click(function(event){
+    //   event.preventDefault()
+      
+        // var city = $('<li>').html(input.val()) 
+        // list.append(city)
+        // prepend(city)
+        // input.val().focus()
+      //else
+    //click event
+	
+	var apiKey = '43344d03d0f794937f2ddf899d737521';
+  	var weatherUrl = 'http://api.openweathermap.org/data/2.5/find?q=NYC&units=imperial&APPID='+apiKey;
+
+	$.get(weatherUrl, function(response) {
+		console.log(response)
+		
+            // $("#temp").text(response.main.temp);
+            // $("#humidity").text(response.main.humidity);
+            // $("#wind").text(response.wind.speed);
+  });
+
+	//JSON
+
 });
+
+
+
+//handlebars
+//each
 
