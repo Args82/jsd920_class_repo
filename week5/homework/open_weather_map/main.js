@@ -34,38 +34,55 @@ Open Weather Map Instructions:
 
 // }
 
-$(document).ready(function () {
+$(document).ready(function() {
+    var button = $('#enter').click(function() {
+        makeRequest()
+    })
+    var apiKey = '43344d03d0f794937f2ddf899d737521';
+    var weatherUrl =
+        'http://api.openweathermap.org/data/2.5/find?q=NYC&units=imperial&APPID=' +
+        apiKey;
+    $.get(weatherUrl)
 
-	 // var list = $('#list')
-  //    var input = $('#weather')
+    	.done(function(res) {
+        console.log(res)
 
-    // $('#clickme').click(function(event){
-    //   event.preventDefault()
-      
-        // var city = $('<li>').html(input.val()) 
-        // list.append(city)
-        // prepend(city)
-        // input.val().focus()
-      //else
-    //click event
-	
-	var apiKey = '43344d03d0f794937f2ddf899d737521';
-  	var weatherUrl = 'http://api.openweathermap.org/data/2.5/find?q=NYC&units=imperial&APPID='+apiKey;
+    }).fail(function(xhr) {
+        console.log("error has ocurred: ", xhr)
+    })
 
-	$.get(weatherUrl, function(response) {
-		console.log(response)
-		
-            // $("#temp").text(response.main.temp);
-            // $("#humidity").text(response.main.humidity);
-            // $("#wind").text(response.wind.speed);
-  });
 
-	//JSON
 
+    var getWeather = function(){
+    	var city = $('#newCity').val()
+
+    }
+    	
+    	// var weather = JSON.parse(weatherUrl);
+
+ //    var source = $('#title-template').html();
+	// var template = Handlebars.compile(source);
+	// var weatherObj = {
+	// 	city: '',
+	// 	temperature: '',
+	// 	humidity: '',
+	// 	wind: ''
+	// }
+
+	// var weatherTemp = $('#weather-template').html()
+	// var compileTemplate = Handlebars.compile(weatherTemp)
+	// var addObjs = compileTemplate(weatherObj)
+	// var weatherList = $('#weather').append(addObjs)
 });
 
 
+	
 
-//handlebars
-//each
+	 	
+	
+
+
+
+
+
 

@@ -64,3 +64,25 @@ window.onload = function(){
 // 	})
 // }
 
+<<<<<<< HEAD
+=======
+window.onload = function () {
+  var button = $('#getDataButton').click(function(){
+    makeRequest()
+  })
+  var url = 'https://gbfs.citibikenyc.com/gbfs/en/station_information.json';
+  function makeRequest(){
+    $.get(url)
+      .done(function(res){ console.log(res)})
+      .fail(function(xhr){ console.log("error has ocurred: ", xhr)})
+  }
+
+  $.ajax({
+    url:url,
+    type:'GET',
+    dataType:'PDF',
+    success: function(res) { console.log(res)},
+    error: function(xhr) { console.log(xhr)}
+  })
+};
+>>>>>>> e0dc8a2bc4845c11af59e4bbd686ad6966b86a04
