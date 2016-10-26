@@ -28,9 +28,21 @@
  *
  */
 
-function makeCountingFunction() {}
+function makeCountingFunction(predicate) {
+	return function(arr){
+		var counter= 0;
+		arr.forEach(function(d){
+		if(isOdd(d)) { counter++ };
+	});
+	return counter;
+	
+	
+	
+	}
+}
 
-function isOdd() {}
+function isOdd(num) {return num % 2 == 1};
+function isEven(num) { return num % 2 == 0 };
 
 // =============================================================================
 // The code below should work without modification.
