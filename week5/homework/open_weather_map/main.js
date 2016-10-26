@@ -34,7 +34,7 @@ Open Weather Map Instructions:
 
 // }
 $(document).ready(function () {
- var apiKey = 'a6d86f5e3f968b512495ef6fc2b1e70d';
+  var apiKey = 'a6d86f5e3f968b512495ef6fc2b1e70d';
   var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=' + apiKey + '&units=imperial&q=';
 
   
@@ -44,23 +44,26 @@ $(document).ready(function () {
     })
   	.done(function (response) {
   		console.log(response);
+      createDom(response, '#nyc-weather');
 
-  		var temp = response.main.temp;
-  		var humidity = response.main.humidity;
-  		var windSpeed = response.wind.speed;
+      //set data to variable
+  // 		var temp = response.main.temp;
+  // 		var humidity = response.main.humidity;
+  // 		var windSpeed = response.wind.speed;
 
-		$('#nyc-weather')
-			.append('<p>Temperature: ' + temp + '</p>')
-			.append('<p>Humidity: ' + humidity + '</p>')
-			.append('<p>Wind Speed: ' + windSpeed + '</p>');
+  //     //create elements to put into div
+		// $('#nyc-weather')
+		// 	.append('<p>Temperature: ' + temp + '</p>')
+		// 	.append('<p>Humidity: ' + humidity + '</p>')
+		// 	.append('<p>Wind Speed: ' + windSpeed + '</p>');
 
   	});
   
-
+    //.submit = button, 
   	$('#weather-form').submit(function (event) {
   		event.preventDefault();
 
-  		//input
+  		//set values to variable
   		var city = $('#city').val();
   		var state = $('#state').val();
 
@@ -78,7 +81,7 @@ $(document).ready(function () {
   	});
 
   	function outputWeather (response) {
-  		console.log(response);
+  		console.log(response, '#weather-output' );
 
   		var city = response.name;
   		var temp = response.main.temp;
@@ -86,7 +89,7 @@ $(document).ready(function () {
   		var windSpeed = response.wind.speed;
 
   	$('#weather-output')
-        .empty() 
+        .empty() //empty out fields
         .append('<p>City: ' + city + '</p>')
         .append('<p>Temperature: ' + temp + '</p>')
         .append('<p>Humidity: ' + humidity + '</p>')
@@ -96,6 +99,27 @@ $(document).ready(function () {
 
 }
       });
+
+
+//refactor
+
+function createDom(response, sel){
+  console.log('response')
+  //grab data
+      var temp = response.main.temp;
+      var humidity = response.main.humidity;
+      var windSpeed = response.wind.speed;
+
+      //create elements to put into div
+      //take selector put into params under .done
+    $('#nyc-weather')
+      .append('<p>Temperature: ' + temp + '</p>')
+      .append('<p>Humidity: ' + humidity + '</p>')
+      .append('<p>Wind Speed: ' + windSpeed + '</p>');
+
+    
+}
+
 
 
 	 	
