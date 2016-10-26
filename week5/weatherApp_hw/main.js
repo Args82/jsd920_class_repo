@@ -62,4 +62,13 @@ $(document).ready(function () {
 }
       });
 
+var template = Handlebars.compile($('#title-template').html());
+var weatherObj = { 
+    city: city,
+    temp: temp,
+    humidity: humidity,
+    windSpeed: windSpeed,
+};
+
+$('#weather-output').append(template(weatherObj));
 
