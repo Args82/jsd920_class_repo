@@ -23,6 +23,7 @@ $(document).ready(function() {
     ]
 
     //constructor to define object type & properties
+    // constructor is useful when you want to create multiple similar objects with the same properties and methods
     function Article(source, title, tags, content, shares, image) {
 
         this.source = source,
@@ -35,43 +36,67 @@ $(document).ready(function() {
 
     //GET api data from each news source
     //grabs mashable
-    $.get(sources[0].url).done(function(res) {
-            console.log(res);
-            for (i = 0; i < res.new.length; i++) {
-                var title = res.new[i].title;
-                // var tags = ;
-                var content = res.new[i].content.plain;
-                var shares = res.new[i].shares.total;
-                var image = res.new[i].responsive_images[0].image;
-            }
-            //create new object that holds specific data           //out of scope *review
-            var newArticle = new Object(sources[0].title, content, shares, image)
-                //push into articles array
-            sources[0].articles.push(newArticle)
+    // $.get(sources[0].url).done(function(res) {
+    //         console.log(res);
+    //         for (i = 0; i < res.new.length; i++) {
+    //             var title = res.new[i].title;
+    //             var tags = res.new[i].channel_label
+    //             var content = res.new[i].content.plain;
+    //             var shares = res.new[i].shares.total;
+    //             var image = $('<img>').attr('src', res.new[i].image);
+               
+
+    //         }
+
+    //         $('.featuredImage').append(image)
+
+    //         $('.articleContent')
+
+    //             .append('<h3>' + title + '</h3>')
+    //             .append('<h6>' + tags + '</h6>')
+
+    //         $('.impressions').append('<p>' + shares + '</p>')
+
+    //         //create new object that holds specific data           //out of scope *review
+    //         var newArticle = new Object(sources[0].title, content, shares, image)
+    //             //push into articles array
+    //         sources[0].articles.push(newArticle)
 
 
 
 
 
-        })
-        .fail(function(xhr) {
-            console.log('An error occurred:');
-            console.log(xhr);
-        })
-
+    //     })
+    //     .fail(function(xhr) {
+    //         console.log('An error occurred:');
+    //         console.log(xhr);
+    //     })
 
     //grabs digg
     $.get(sources[1].url).done(function(res) {
             console.log(res);
             //inerate through data
-            for (i = 0; i < res.data.length; i++) {
+            for (i = 0; i < res.data.feed.length; i++) {
                 var title = res.data.feed[i].content.title_alt;
                 var tags = res.data.feed[i].tags;
                 var content = res.data.feed[i].content.description;
-                var shares = ''
-                var image = res.data.feed[i].content.media.images[0].original_url
+                var shares = res.data.feed[i].comments.count
+                
+                      // res.data.feed.content.media.images.forEach( function(image) {
+                      //   var image = $('<img>');
+                      //       image.attr('src',images.original_url);
+                      //     // statements
+                      // });                        
             }
 
+            // $('.featuredImage').append(image)
+
+            $('.articleContent')
+
+                .append('<h3>' + title + '</h3>')
+                .append('<h6>' + tags + '</h6>')
+
+            $('.impressions').append('<p>' + shares + '</p>')
             //create new object that holds specific data         //out of scope *review
             var newArticle = new Object(sources[1].title, tags, content, image);
             //push into articles array
@@ -96,13 +121,22 @@ $(document).ready(function() {
             var tags = res.data.children[i].data //find tags array
             var content = res.data.children[i].data
             var shares = res.data.children[i].data
-            var image = res.data.children[i].data.preview.images
+           
+            var image = $('<img>')
+            image.attr('src', res.data.children[i].data.preview.images);
         }
+        $('.featuredImage').append(image)
+         $('.articleContent')
 
+                .append('<h3>' + title + '</h3>')
+                .append('<h6>' + tags + '</h6>')
+
+            $('.impressions').append('<p>' + shares + '</p>')
         //create new object that holds specific data          //out of scope *review
-        var newArticle = new Object(sources[2].title, content, shares, image);
-        //push into articles array
-        sources[2].articles.push(newArticle)
+      //create new object that holds specific data         //out of scope *review
+            var newArticle = new Object(sources[1].title, tags, content, image);
+            //push into articles array
+            sources[1].articles.push(newArticle)
 
 
     })
@@ -112,11 +146,7 @@ $(document).ready(function() {
         console.log(xhr);
     })
 
-
-
-
-});
-
+})
 
 
 
