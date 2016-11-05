@@ -4,6 +4,7 @@ $(function() {
         sdk_key: '36f60b89ec4160c243d1dade170be2a10bee3d52'
     });
 
+<<<<<<< HEAD
     $('#login').click(function() {
         console.log("login clicked")
         _500px.login();
@@ -51,4 +52,6 @@ $(function() {
             $('.images').append('Sorry, the browser does not support geolocation');
         }
     });
+=======
+>>>>>>> 380abaecbc354dbaef5320f61033332477f4d46f
 });
