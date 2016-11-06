@@ -39,7 +39,72 @@ Instructions:
 
 $(document).ready(function () {
 
-	// push all animal instances here
+	function FarmAnimal( type, name, sound, image){
+		this.type = type
+		this.name= name
+		this.sound = sound
+		this.image = image
+	}
+
+	FarmAnimal.prototype.speak = function(){
+		alert('My name is ' +this.name+ ', and I say ' +this.sound)
+	}
+
+	var animal = new FarmAnimal('pig', 'Piglet', 'oink, oink')
+
+	// animal.speak()
+
+	function Cow(name, image){
+		FarmAnimal.call(this,'cow', name, 'mooo', image)
+	}
+
+	function Sheep(name, image){
+		FarmAnimal.call(this,'sheep', name, 'bahhh', image)
+	}
+
+	function Rooster(name, image){
+		FarmAnimal.call(this,'rooster', name, 'cock a doodle dooo', image)
+	}
+
+var cow = new Cow('Dolly', 'http://www.activityvillage.co.uk/sites/default/files/images/images2/cows_350.jpg')
+
+var sheep = new Sheep('Wooly', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS6SeD-7XnpI0wo85_DJwHquYyiye8bquXZ_kbKLG5GgXs46wMQrQ')
+var rooster = new Rooster('Rocky', 'http://www.offthegridnews.com/wp-content/uploads/2015/08/rooster-fameimagesDOTcom.jpg')
+
+
+		
+
+						
+		// push all animal instances 
+		// 
+		// 
 	var farmAnimals = [];
 
-})
+	farmAnimals.push(cow)
+	farmAnimals.push(sheep)
+	farmAnimals.push(rooster)
+
+
+		
+			// statements
+		
+
+
+		
+		
+
+
+
+
+
+
+
+			// statements
+		});
+
+
+
+
+
+
+

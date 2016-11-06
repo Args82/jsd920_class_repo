@@ -52,6 +52,5 @@ $(function() {
             $('.images').append('Sorry, the browser does not support geolocation');
         }
     });
-=======
->>>>>>> 380abaecbc354dbaef5320f61033332477f4d46f
+
 });
