@@ -5,25 +5,10 @@
 $(document).ready(function() {
 
     //array of news sources 
-    var sources = [{
-            name: 'Mashable',
-            url: 'https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json',
-            articles: []
-        },
 
-        {
-            name: 'Digg',
-            url: 'https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json',
-            articles: []
-        }, {
-            name: 'Reddit',
-            url: "https://accesscontrolalloworiginall.herokuapp.com/https://www.reddit.com/top.json",
-            articles: []
-        },
-    ]
 
     //constructor to define object type & properties
-    // constructor is useful when you want to create multiple similar objects with the same properties and methods
+    //constructor is useful when you want to create multiple similar objects with the same properties and methods
     function Article(source, title, tags, content, shares, image) {
 
         this.source = source,
@@ -34,43 +19,44 @@ $(document).ready(function() {
             this.image = image
     }
 
-    //GET api data from each news source
-    //grabs mashable
-    // $.get(sources[0].url).done(function(res) {
-    //         console.log(res);
-    //         for (i = 0; i < res.new.length; i++) {
-    //             var title = res.new[i].title;
-    //             var tags = res.new[i].channel_label
-    //             var content = res.new[i].content.plain;
-    //             var shares = res.new[i].shares.total;
-    //             var image = $('<img>').attr('src', res.new[i].image);
-               
-
-    //         }
-
-    //         $('.featuredImage').append(image)
-
-    //         $('.articleContent')
-
-    //             .append('<h3>' + title + '</h3>')
-    //             .append('<h6>' + tags + '</h6>')
-
-    //         $('.impressions').append('<p>' + shares + '</p>')
-
-    //         //create new object that holds specific data           //out of scope *review
-    //         var newArticle = new Object(sources[0].title, content, shares, image)
-    //             //push into articles array
-    //         sources[0].articles.push(newArticle)
+    // GET api data from each news source
+    // grabs mashable
+    $.get(sources[0].url).done(function(res) {
+            console.log(res);
+            for (i = 0; i < res.new.length; i++) {
+                var title = res.new[i].title;
+                var tags = res.new[i].channel_label
+                var content = res.new[i].content.plain;
+                var shares = res.new[i].shares.total;
+                var image = $('<img>').attr('src', res.new[i].image);
 
 
 
+            }
+
+            $('.featuredImage').append(image)
+
+            $('.articleContent')
+
+            .append('<h3>' + title + '</h3>')
+                .append('<h6>' + tags + '</h6>')
+
+            $('.impressions').append('<p>' + shares + '</p>')
+
+            //create new object that holds specific data           //out of scope *review
+            var newArticle = new Article(sources[0].title, content, shares, image)
+                //push into articles array
 
 
-    //     })
-    //     .fail(function(xhr) {
-    //         console.log('An error occurred:');
-    //         console.log(xhr);
-    //     })
+
+
+
+
+        })
+        .fail(function(xhr) {
+            console.log('An error occurred:');
+            console.log(xhr);
+        })
 
     //grabs digg
     $.get(sources[1].url).done(function(res) {
@@ -78,29 +64,29 @@ $(document).ready(function() {
             //inerate through data
             for (i = 0; i < res.data.feed.length; i++) {
                 var title = res.data.feed[i].content.title_alt;
-                var tags = res.data.feed[i].tags;
+                var tags = res.data.feed[i].content.tags;
                 var content = res.data.feed[i].content.description;
                 var shares = res.data.feed[i].comments.count
-                
-                      // res.data.feed.content.media.images.forEach( function(image) {
-                      //   var image = $('<img>');
-                      //       image.attr('src',images.original_url);
-                      //     // statements
-                      // });                        
+
+
+                var image = $('<img>');
+                image.attr('src', images.original_url);
+                // statements
+
             }
 
-            // $('.featuredImage').append(image)
+            $('.featuredImage').append(image)
 
             $('.articleContent')
 
-                .append('<h3>' + title + '</h3>')
+            .append('<h3>' + title + '</h3>')
                 .append('<h6>' + tags + '</h6>')
 
             $('.impressions').append('<p>' + shares + '</p>')
-            //create new object that holds specific data         //out of scope *review
-            var newArticle = new Object(sources[1].title, tags, content, image);
+                //create new object that holds specific data         //out of scope *review
+            var newArticle = new Article(sources[1].title, tags, content, image);
             //push into articles array
-            sources[1].articles.push(newArticle)
+
 
 
 
@@ -116,27 +102,28 @@ $(document).ready(function() {
     //grabs reddit
     $.get(sources[2].url).done(function(res) {
         console.log(res);
-        for (i = 0; i < res.data.children.length; i++) {
+        for (i = 0; i < res.data.children
+.length; i++) {
             var title = res.data.children[i].data.title
             var tags = res.data.children[i].data //find tags array
             var content = res.data.children[i].data
             var shares = res.data.children[i].data
-           
+
             var image = $('<img>')
             image.attr('src', res.data.children[i].data.preview.images);
         }
         $('.featuredImage').append(image)
-         $('.articleContent')
+        $('.articleContent')
 
-                .append('<h3>' + title + '</h3>')
-                .append('<h6>' + tags + '</h6>')
+        .append('<h3>' + title + '</h3>')
+            .append('<h6>' + tags + '</h6>')
 
-            $('.impressions').append('<p>' + shares + '</p>')
-        //create new object that holds specific data          //out of scope *review
-      //create new object that holds specific data         //out of scope *review
-            var newArticle = new Object(sources[1].title, tags, content, image);
-            //push into articles array
-            sources[1].articles.push(newArticle)
+        $('.impressions').append('<p>' + shares + '</p>')
+            //create new object that holds specific data          //out of scope *review
+            //create new object that holds specific data         //out of scope *review
+        var newArticle = new Article(sources[1].title, tags, content, image);
+        //push into articles array
+
 
 
     })
@@ -151,16 +138,38 @@ $(document).ready(function() {
 
 
 
+var sources = [{
+        name: 'Mashable',
+        url: 'https://accesscontrolalloworiginall.herokuapp.com/http://mashable.com/stories.json',
+        articles: []
+    },
 
+    {
+        name: 'Digg',
+        url: 'https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json',
+        articles: []
+    }, {
+        name: 'Reddit',
+        url: "https://accesscontrolalloworiginall.herokuapp.com/https://www.reddit.com/top.json",
+        articles: []
+    },
+]
 
+sources[0].articles.push(newArticle)
+sources[1].articles.push(newArticle)
+sources[2].articles.push(newArticle)
 
-//grab template script
-// var source = $('#title-template').html();
-// //compile
-// var template = Handlebars.compile(source);
-// var titleObject = {
-//     article: '',
-//     section: ''
+console.log(articles);
+articles.forEach(function(article) {
+
+    })
+    //grab template script
+    // var source = $('#title-template').html();
+    // //compile
+    // var template = Handlebars.compile(source);
+    // var titleObject = {
+    //     article: '',
+    //     section: ''
 
 // };
 
