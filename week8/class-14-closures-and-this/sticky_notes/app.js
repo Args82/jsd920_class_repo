@@ -29,3 +29,43 @@
 	Bonus:
 	- Remove a sticky note if a user clicks on it
 */
+
+
+
+
+
+
+$(document).ready(function() {
+
+    var count = 0;
+
+
+    $('button').on('click', function(event) {
+        event.preventDefault();
+        count++;
+
+
+        var $newNote = $('<div>').addClass('box');
+
+        //get input and store into variable
+        var colorNote = $('.color').val();
+        var messageNote = $('.note').val();
+
+
+        //change newnNote color to input value
+        $newNote.css({ backgroundColor: colorNote });
+
+        //put messageNote and count into newNote
+        $newNote.html(count + '.  ' + messageNote);
+        $('.container').append($newNote);
+
+        $('.color').val('');
+        $('.note').val('');
+    });
+
+
+});
+$('.container').on('click', '.box', function() {
+    console.log("remove")
+    $(this).remove()
+})
