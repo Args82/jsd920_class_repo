@@ -45,6 +45,7 @@
 
 $(document).ready(function() {
 
+    //create constructor
     function FarmAnimal(type, name, sound, image, speak) {
         this.type = type
         this.name = name
@@ -107,8 +108,17 @@ $(document).ready(function() {
     farmAnimals.push(sheep)
     farmAnimals.push(rooster)
 
+    //loop through array
     console.log(farmAnimals);
     farmAnimals.forEach(function(farmAnimal) {
+
+        // var div = $('<div>').addClass('animal').css('background-image', 'url(' + farmAnimal.image')
+        // $('body').append(div)
+        // $('div').click(function(){
+        // alert('My name is ' + this.name + ', and I say ' + this.sound)
+        // 
+        // })
+        // 
 
     })
 })
