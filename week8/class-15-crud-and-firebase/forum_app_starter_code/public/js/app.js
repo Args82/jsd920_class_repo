@@ -1,4 +1,10 @@
-<<<<<<< HEAD
+// firebase init
+// firebase.json
+// firebase database rules make them true
+
+
+
+
 //CR$(document).ready(function() {
 
 var messageAppReference = firebase.database(); //must use to start firebase

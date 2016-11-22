@@ -1,13 +1,4 @@
-{
-<<<<<<< HEAD
-    "rules": {
-        ".read": true,
-        ".write": true
-    }
-=======
-  "rules": {
+"rules" {
     ".read": true,
     ".write": true
-  }
->>>>>>> bc34673c965b1791b8ccf72232cda7b4b2f7e384
 }
