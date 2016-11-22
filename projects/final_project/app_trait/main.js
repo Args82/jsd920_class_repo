@@ -1,32 +1,27 @@
 $(document).ready(function() {
-    /* body... */
-    //login/sign up?
-    //currently slides repeat themselves and don't stop after 56
-    //need to grab data after slide 56
-    //find career matches
-    //display results
-    //** need to clear results for next client
 
 
 
-    //pulic     399c11fc4bb447b9d67d175d88
-    //secret    508f7a24948e461475c8858c8a
 
-    //     curl https://api-sandbox.traitify.com/v1/assessments \
-    // -H "Content-Type: application/json" \
-    // -u 508f7a24948e461475c8858c8a:x \
-    // -d '{"deck_id": "career-deck"}'
-    // {"id":"943f952d-3f7e-45a8-8716-1e2e4d930bcf","deck_id":"career-deck","completed_at":null,"created_at":1479145851948,"locale_key":"en-US","profile_id":"201e1fe7-c4d2-444f-b952-cf88a8794f6e"}ALEXANDRAs-MacBook-Air:~ ATA$ 
 
-    //send request for assessment id to traitify
-    var assessmentId = '943f952d-3f7e-45a8-8716-1e2e4d930bcf';
+    //DISPLAY CAREER MATCHES
 
+    //** CLEAR RESULTS 
+    //NODE.JS
+
+
+
+
+
+
+    var assessmentId = '4b439ad0-9488-42d6-9360-6738e494efb2';
     Traitify.setPublicKey("399c11fc4bb447b9d67d175d88");
     Traitify.setHost("https://api-sandbox.traitify.com");
     Traitify.setVersion("v1");
 
 
-    //progress bar
+
+    //PROGRESS BAR
     function updateProgress(position) {
         var percentage = Math.ceil(position / parseInt($('#total-slides').text()) * 100);
 
@@ -35,128 +30,108 @@ $(document).ready(function() {
         $('#percentage-bar').css('width', percentage + '%');
     }
 
-    // 1. hard code the career deck id
-    var deck_id = 'career_deck'; //do I need deck id?
 
+    //DETERMINES WHEN ON LAST SLIDE
+    function lastSlide() {
+        if ($('#current-slide-position').text() == $('#total-slides').text()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    var deck_id = 'career_deck';
+
+
+    //GETS RESULTS/DATA BUT DOESN'T DISPLAY ON DOM
+    function getResults() {
+        Traitify.get("/assessments/" + assessmentId + "?data=blend,types,traits,career_matches").then(function(data) {
+            console.log(data)
+
+            traitify = Traitify.ui.load("results", assessmentId, ".traitify-widget");
+            traitify = Traitify.ui.load("personalityTypes", assessmentId, ".traitify-widget");
+            traitify = Traitify.ui.load("personalityTraits", assessmentId, ".traitify-widget");
+        })
+    }
+
+
+    //GETS EACH SLIDE 
     function slideUpdate(assessment_id, slide_id, time_taken, response) {
         var url = '/assessments/' + assessment_id + '/slides/' + slide_id;
         var params = {
             id: assessment_id,
             response: response, //true/false 
-            time_taken: time_taken //need to grab time taken
+            time_taken: time_taken,
+            slide_id: slide_id //need to grab time taken
         }
         return Traitify.put(url, params);
     }
 
-    //at slide 56 grab data and display results
+
     //NOT ME button
+    //COLLECTS AND SENDS DATA BACK AT CLICK BUTTON
     $('#slides-target').on('click', '.notMeBtn', function(event) {
         event.preventDefault();
         var slide_id = $(this).data('slide_id');
         var assessment_id = $(this).data('assessment_id');
         var position = $(this).data('position');
 
-        // 1. send this current assessment id and the current slide id with the "not me" value to Traitify
+
+        //COLLECTS EACH SLIDE'S CURRENT DATA AND HIDES ALL SLIDES AT THE LAST ONE AND REQUESTS RESULTS
         slideUpdate(assessment_id, slide_id, 2000, false).then(function(response) {
-            // 2. go to the next slide
-            updateProgress(position);
-            $('#trait-carousel').carousel('next');
+            if (lastSlide()) {
+                //addClass hidden
+                $('#ui').addClass('hidden');
+                getResults()
+                    // showTraits()
+                    // showTypes()
+                    // showCareers()
+
+
+            } else {
+                // GO TO NEXT SLIDE
+                updateProgress(position + 1);
+                $('#trait-carousel').carousel('next');
+            }
+
         });
     });
 
     //ME button
+    //COLLECTS AND SENDS DATA BACK AT CLICK BUTTON
     $('#slides-target').on('click', '.meBtn', function(event) {
         event.preventDefault();
         var slide_id = $(this).data('slide_id');
         var assessment_id = $(this).data('assessment_id');
         var position = $(this).data('position');
 
-        // 1. send this current assessment id and the current slide id with the "not me" value to Traitify
+
+        //COLLECTS EACH SLIDE'S CURRENT DATA AND HIDES ALL SLIDES AT THE LAST ONE AND REQUESTS RESULTS
         slideUpdate(assessment_id, slide_id, 2000, true).then(function(response) {
             // 2. go to the next slide
-            updateProgress(position + 1);
-            $('#trait-carousel').carousel('next');
+            if (lastSlide()) {
+                //addClass hidden
+                $('#ui').addClass('hidden');
+                getResults()
+                    // showTraits()
+                    // showTypes()
+                    // showCareers()
+
+            } else {
+                // GOT TO NEXT SLIDE
+                updateProgress(position + 1);
+                $('#trait-carousel').carousel('next');
+            }
+
         });
     });
 
-    //don't know if this works
-    function getResults(assessment_id, blend, types, traits, career_matches) {
-        var url = /assessments/ + assessment_id + data;
-        var params = {
-            id: assessment_id,
-            blend: blend,
-            types: types,
-            traits: traits,
-            career_matches: career_matches
-        }
-
-        return traitify.get(url, data);
 
 
-        /* body... */
-    }
-    //* this grabs all 6 decks
-    // Traitify.get("/decks", function(data) {
-    //         console.log(data, data)
-    //     })
-
-
-
-    //  POST
-    //  Authorization: Basic {your_secret_key}:x
-    //  https://api.traitify.com/v1/assessments
-    //  {
-    //    'deck_id': 'career-deck'
-    //  }
-    //skip for now
-    // Traitify.put('/assessments', {
-    //     deck_id: deck_id
-    // }).then(function(data) {
-    //     console.log('data', data)
-    // })
-
-
-    // Traitify.put(assessmentId).then(function(id, response, time_taken) {
-    //     console.log(id, response, time_taken)
-
-    //     var id = slide.id
-    //     var response = slide.response
-    //     var time_taken = slide.time_taken
-
-
-
-
-
-
-
-
-    // })
-
-
-
-    // 3. with the new assessment id request the slide information
-
-
-
-
-    //  [
-    //      {
-    //          "id": "b93af357-0cd7-494e-b436-c67313c0fab6",
-    //          "position": 1,
-    //          "caption": "Using a Microscope ",
-    //          "image_desktop": "https://traitify-api.s3.amazonaws.com/slides/b93af357-0cd7-494e-b436-c67313c0fab6/desktop",
-    //          "image_desktop_retina": "https://traitify-api.s3.amazonaws.com/slides/b93af357-0cd7-494e-b436-c67313c0fab6/desktop_retina",
-    //          "response": null,
-    //          "time_taken": null,
-    //          "completed_at": null,
-    //          "created_at": 1414091516995,
-    //          "focus_x": 62,
-    //          "focus_y": 47
-    //      },
-    //  ]
 
     Traitify.getSlides(assessmentId).then(function(slideObj) {
-        console.log(slideObj);
+        slideObj = slideObj.slice(0, 3);
         $('#total-slides').text(slideObj.length);
         var slideTemplate = $('#slide-template').html();
         var buildSlideHtmlFunction = Handlebars.compile(slideTemplate);
@@ -172,6 +147,7 @@ $(document).ready(function() {
             });
         });
         // console.log('slides_array', slides_array)
+        //     //HACK LOL!!!!!!!!!!
 
         var slideDataObj = {
             slide: slides_array
@@ -184,33 +160,47 @@ $(document).ready(function() {
 
 
 
-    // 4. create a carousel (slides) with the image and 2 buttons
-    //  button 1 "Me"
-    //  button 2 "Not me"
-    //  ** if not too hard, show progress bar
+    //TRYING TO GET CAREER MATCHES TO SHOW UP
 
-    // 5. depending on which button the user clicked, we want to make another ajax call to record their response
-    //  PUT
-    //     
-    //      https://api.traitify.com/v1/assessments/{assessment_id}/slides/{slide_id}
-    //      {
-    //          "id": "781acd1f-8184-482d-a3d1-e6190d0b7db5",
-    //          "response": true,
-    //          "time_taken": 1000
-    //      }
+    Traitify.getCareers(assessmentId).then(function(careerObject) {
+        console.log(careerObject)
 
-    // 6. at the end make another ajax call to results
-    //  https://api.traitify.com/v1/assessments/{assessment_id}?data=blend,types,traits,career_matches
+        careerObject = careerObject
+
+        var careerTemplate = $('#career-template').html();
+        var careerHtmlFunction = Handlebars.compile(careerTemplate);
 
 
-    // * /
+        var career_matches = [];
+        careerObject.forEach(function(career) {
+            career_matches.push({
+
+                career: career,
+                experience_level: career.experience_level,
+                title: career.title,
+                description: career.description
+            })
+            console.log('career_matches', career_matches)
+
+            var careerDataObj = {
+                career: career_matches
+            };
+            var htmlOfCareers = careerHtmlFunction(careerDataObj);
+
+            $("#career-matches").append(htmlOfCareers);
+            // statements
+        });
+    })
+
     // var traitify = Traitify.ui.load("careers", assessmentId, ".careers", {
-    //     careers: {
+    //       careers: {
     //         experience_levels: "1,2", // Comma deliminated list
     //         number_of_matches: 5, // max 100
-    //         columns: 5
-    //     }
-    // });
+
+    //       }
+    //     });
 
 
-})
+
+
+});

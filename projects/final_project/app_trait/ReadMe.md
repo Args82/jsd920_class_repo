@@ -1,9 +1,25 @@
+
+
+
+
+/pulic     399c11fc4bb447b9d67d175d88
+ secret    508f7a24948e461475c8858c8a
+
+         curl https://api-sandbox.traitify.com/v1/assessments \
+     -H "Content-Type: application/json" \
+     -u 508f7a24948e461475c8858c8a:x \
+     -d '{"deck_id": "career-deck"}'
+    // {"id":"943f952d-3f7e-45a8-8716-1e2e4d930bcf","deck_id":"career-deck","completed_at":null,"created_at":1479145851948,"locale_key":"en-US","profile_id":"201e1fe7-c4d2-444f-b952-cf88a8794f6e"}ALEXANDRAs-MacBook-Air:~ ATA$ 
+
+
 # Project Overview
 	An application that helps you find the best career for your personality type
 
 ## Project Description
 
 	This app gathers information based on a personality assessment and then returns your personality type and traits and career matches.
+
+traitify.com
 
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality
 
@@ -36,3 +52,4 @@ Use this section to document all helper functions. These functions should be ver
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
+

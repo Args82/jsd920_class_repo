@@ -1,3 +1,11 @@
-.caption_div {
-  background-color: "#FFFFFF"
+.results {
+    background-color: #aaa;
+}
+
+.traitify-widget{
+	background-color: #aaa
+}
+
+.container {
+	background-color: pink;
 }
