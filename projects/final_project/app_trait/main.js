@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 
 
-
+    //check admin page for login
     //DISPLAY CAREER MATCHES
 
     //** CLEAR RESULTS 
@@ -47,11 +47,12 @@ $(document).ready(function() {
     //GETS RESULTS/DATA BUT DOESN'T DISPLAY ON DOM
     function getResults() {
         Traitify.get("/assessments/" + assessmentId + "?data=blend,types,traits,career_matches").then(function(data) {
-            console.log(data)
 
             traitify = Traitify.ui.load("results", assessmentId, ".traitify-widget");
             traitify = Traitify.ui.load("personalityTypes", assessmentId, ".traitify-widget");
             traitify = Traitify.ui.load("personalityTraits", assessmentId, ".traitify-widget");
+
+
         })
     }
 
@@ -86,7 +87,7 @@ $(document).ready(function() {
                 getResults()
                     // showTraits()
                     // showTypes()
-                    // showCareers()
+                showCareers()
 
 
             } else {
@@ -116,7 +117,7 @@ $(document).ready(function() {
                 getResults()
                     // showTraits()
                     // showTypes()
-                    // showCareers()
+                showCareers()
 
             } else {
                 // GOT TO NEXT SLIDE
@@ -126,6 +127,14 @@ $(document).ready(function() {
 
         });
     });
+
+    // function getCareer() {
+    //     Traitify.get("/assessments/" + assessmentId + '/matches/' + 'careers' + "?number_of_matches=5,experience_levels=3,4").then(function(data) {
+    //         console.log('career_matches')
+
+    //     })
+    // }
+
 
 
 
@@ -161,36 +170,31 @@ $(document).ready(function() {
 
 
     //TRYING TO GET CAREER MATCHES TO SHOW UP
+    function showCareers() {
 
-    Traitify.getCareers(assessmentId).then(function(careerObject) {
-        console.log(careerObject)
-
-        careerObject = careerObject
-
-        var careerTemplate = $('#career-template').html();
-        var careerHtmlFunction = Handlebars.compile(careerTemplate);
+        Traitify.getCareers(assessmentId).then(function(careerObject) {
+            var careerTemplate = $('#career-template').html();
+            var careerHtmlFunction = Handlebars.compile(careerTemplate);
 
 
-        var career_matches = [];
-        careerObject.forEach(function(career) {
-            career_matches.push({
-
-                career: career,
-                experience_level: career.experience_level,
-                title: career.title,
-                description: career.description
-            })
-            console.log('career_matches', career_matches)
+            var career_matches = [];
+            careerObject.forEach(function(career) {
+                career_matches.push({
+                    experience_level: career.experience_level,
+                    title: career.title,
+                    description: career.description
+                })
+            });
 
             var careerDataObj = {
-                career: career_matches
+                career_matches: career_matches
             };
             var htmlOfCareers = careerHtmlFunction(careerDataObj);
-
+            console.log(htmlOfCareers);
             $("#career-matches").append(htmlOfCareers);
-            // statements
-        });
-    })
+        })
+    }
+
 
     // var traitify = Traitify.ui.load("careers", assessmentId, ".careers", {
     //       careers: {

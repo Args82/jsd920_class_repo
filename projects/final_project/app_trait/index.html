@@ -34,19 +34,20 @@
         {{/each}}
     </script>
     <!-- HANDLEBARS TEMPLATE -->
-  <script id="career-template" type="text/x-handlebars-template">
-    {{#each career}}
-    <div id="career-matches" class="careers your-class">
+    <script id="career-template" type="text/x-handlebars-template">
+        {{#each career_matches}}
+        <div id="career-match" class="careers your-class">
+            {{title}} {{description}}
+        </div>
         {{/each}}
-    </div>
-</script>
-
+    </script>
     <!-- css style -->
 </head>
 
 <body>
     <div class="container">
         <h1 class="col-md-6 col-md-offset-3 text-center">Hello, world!</h1>
+        <div id="career-matches" class="careers your-class"></div>
         <div class="traitify-widget">
             <div id="ui">
                 <p class="col-md-6 col-md-offset-3 text-center">Currently seeing slide #<span id="current-slide-position">0</span> of <span id="total-slides">0</span></p>
@@ -56,17 +57,15 @@
                     </div>
                 </div>
                 <!-- <div class="row"> -->
-                    <!-- <div class="col-xs-12 col-md-8"> -->
-                        <div class="results your-class"></div>
-                        <div class="personality-types your-class"></div>
-                        <div class="personality-traits your-class"></div>
-                         <div id="career-matches" class="careers your-class"></div>
-
-                        <div id="trait-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                            <!-- Wrapper for slides -->
-                            <div id="slides-target" class="carousel-inner" role="listbox"></div>
-                        </div>
-                   <!--  </div> -->
+                <!-- <div class="col-xs-12 col-md-8"> -->
+                <div class="results your-class"></div>
+                <div class="personality-types your-class"></div>
+                <div class="personality-traits your-class"></div>
+                <div id="trait-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <!-- Wrapper for slides -->
+                    <div id="slides-target" class="carousel-inner" role="listbox"></div>
+                </div>
+                <!--  </div> -->
                 <!-- </div> -->
             </div>
         </div>
