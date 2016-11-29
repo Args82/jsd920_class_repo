@@ -1,5 +1,0 @@
-{
-    "id": "07b759ad-ab7a-4c9f-83b4-ab36ddda5e6d", "deck_id": "career-deck", "completed_at": null, "created_at": 1478905786338, "locale_key": "en-US", "profile_id": "450c5dca-8297-4869-9732-40665d9334b3"
-}
-
-s 508f7a24948e461475c8858c8a p 399c11fc4bb447b9d67d175d88 curl https: //api-sandbox.traitify.com/v1/assessments \ -H "Content-Type: application/json" \ -u 508f7a24948e461475c8858c8a:x \ -d '{"deck_id": "FILL IT IN"}'
