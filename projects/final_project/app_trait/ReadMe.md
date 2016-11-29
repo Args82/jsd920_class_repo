@@ -2,10 +2,10 @@
 
 
 
-/pulic     399c11fc4bb447b9d67d175d88
+pulic     399c11fc4bb447b9d67d175d88
  secret    508f7a24948e461475c8858c8a
 
-         curl https://api-sandbox.traitify.com/v1/assessments \
+      curl https://api-sandbox.traitify.com/v1/assessments \
      -H "Content-Type: application/json" \
      -u 508f7a24948e461475c8858c8a:x \
      -d '{"deck_id": "career-deck"}'
@@ -13,15 +13,15 @@
 
 
 # Project Overview
-	An application that helps you find the best career for your personality type
+	An application that gives you career options based on your personality type.
 
 ## Project Description
 
-	This app gathers information based on a personality assessment and then returns your personality type and traits and career matches.
+	This app gathers information based on a personality assessment the client takes and then returns their personality type, traits and career matches.
 
 traitify.com
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality
+Use this section to describe their final project and perhaps any links to relevant sites that help convey the concept and\or functionality
 
 ## Functional Components
 

@@ -1,80 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>
-    <script src="https://cdn.traitify.com/lib/v1.js"></script>
-    <script src="https://cdn.traitify.com/js/widgets/careers.js"></script>
-    <title>Bootstrap 101 Template</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-    <!-- HANDLEBARS TEMPLATE -->
-    <script id="slide-template" type="text/x-handlebars-template">
-        {{#each slide}}
-        <div class="item {{#if @first}}active{{/if}}">
-            <img src="{{image}}" alt="...">
-            <div class="carousel-caption">
-                <div class="caption_div">
-                    <h3>{{caption}}</h3>
-                    <button class="btn btn-success btn-lg meBtn" data-slide_id="{{id}}" data-assessment_id="{{assessment_id}}" data-position="{{position}}">
-                        Me
-                    </button>
-                    <button class="btn btn-danger btn-lg notMeBtn" data-slide_id="{{id}}" data-assessment_id="{{assessment_id}}" data-position="{{position}}">
-                        Not Me
-                    </button>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-    </script>
-    <!-- HANDLEBARS TEMPLATE -->
-    <script id="career-template" type="text/x-handlebars-template">
-        {{#each career_matches}}
-        <div id="career-match" class="careers your-class">
-            {{title}} {{description}}
-        </div>
-        {{/each}}
-    </script>
-    <!-- css style -->
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <script src="https://cdn.traitify.com/js/widgets/v1.js">
+  </script>
+  <script src="https://cdn.traitify.com/lib/v1.js">
+  </script>
+  <script src="https://cdn.traitify.com/js/widgets/careers.js">
+  </script>
+  <title>Bootstrap 101 Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Neucha" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css"><!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js">
+  </script><!-- HANDLEBARS TEMPLATE -->
+
+  <script id="slide-template" type="text/x-handlebars-template">
+                     {{#each slide}}
+
+                     <div class="item {{#if @first}}active{{/if}}">
+                      <div class="caption_div text-center">
+                      
+                                   <h3>{{caption}}</h3>
+
+                     <img src="{{image}}" class="img-responsive" alt="...">
+                      
+
+                     
+                                
+                               
+                                   <button id="meBtn" class="btn btn-default" data-slide_id="{{id}}" data-assessment_id="{{assessment_id}}" data-position="{{position}}">
+                                     Me 
+                                 </button>
+                                 <button id="notMeBtn" class="btn btn-default " data-slide_id="{{id}}" data-assessment_id="{{assessment_id}}" data-position="{{position}}">
+                                     Not Me
+                                 </button>
+                           
+                            
+                        
+
+                            
+                         </div>
+                     </div>
+                     {{/each}}
+  </script>
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="col-md-6 col-md-offset-3 text-center">Hello, world!</h1>
-        <div id="career-matches" class="careers your-class"></div>
-        <div class="traitify-widget">
-            <div id="ui">
-                <p class="col-md-6 col-md-offset-3 text-center">Currently seeing slide #<span id="current-slide-position">0</span> of <span id="total-slides">0</span></p>
-                <div class="col-md-6 col-md-offset-3 progress">
-                    <div id="percentage-bar" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 30%">
-                        <span id="slide-percentage">0</span>% Complete
-                    </div>
-                </div>
-                <!-- <div class="row"> -->
-                <!-- <div class="col-xs-12 col-md-8"> -->
-                <div class="results your-class"></div>
-                <div class="personality-types your-class"></div>
-                <div class="personality-traits your-class"></div>
-                <div id="trait-carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                    <!-- Wrapper for slides -->
-                    <div id="slides-target" class="carousel-inner" role="listbox"></div>
-                </div>
-                <!--  </div> -->
-                <!-- </div> -->
-            </div>
+  <div class="container">
+    <a data-target="#login-modal" data-toggle="modal" href="#">Login</a>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="login-modal" role="dialog" style="display: none;" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1>Login to Your Account</h1><br>
+          <form>
+            <input name="user" placeholder="Username" type="text"> <input name="pass" placeholder="Password" type="password"> <input class="login loginmodal-submit" name="login" type="submit" value="Login">
+          </form>
+          <div class="login-help">
+            <a href="#">Register</a> - <a href="#">Forgot Password</a>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+    <div class="header text-center">
+      <h1 class="title">COOL APP NAME</h1>
+      <h5 class="sub-title">Find your dream job!</h5>
+    </div>
+    <section>
+      <div id="ui">
+        <p class="text-center">Slide #<span id="current-slide-position">1</span> of <span id="total-slides">0</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" id="percentage-bar" role="progressbar" style="width: 30%">
+            <span id="slide-percentage">0</span>% Complete
+          </div>
+        </div><!-- <div class="row"> -->
+        <div class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" id="trait-carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" id="slides-target" role="listbox"></div>
+        </div><!--  </div> -->
+        <!-- </div> -->
+      </div>
+    </section>
+    <section>
+      <div class="results">
+        <div class="traitify-widget"></div>
+        <div class="career"></div>
+      </div>
+    </section>
+  </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script> <!-- Include all compiled plugins (below), or include individual files as needed -->
+   
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script> 
+  <script async charset="utf-8" defer src="main.js" type="text/javascript">
+  </script>
 </body>
-
 </html>
