@@ -11,6 +11,8 @@
 	Connects you to the O*NET database, containing information on hundreds of standardized and occupation-specific descriptors
 
 	*As of now this app has already been set to a Users results
+	Link to my app https://args82.github.io/careerMeio/
+	Link to app repo https://github.com/Args82/Args82.github.io
 
 Use this section to describe their final project and perhaps any links to relevant sites that help convey the concept and\or functionality
 
