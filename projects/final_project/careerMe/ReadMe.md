@@ -15,10 +15,10 @@
 Use this section to describe their final project and perhaps any links to relevant sites that help convey the concept and\or functionality
 
 	**API DOCS**
-	..*https://student12.traitify.com/developer 
-	..*https://github.com/traitify/traitify-js-widgets
-	..*https://github.com/traitify/traitify-js-client
-	..*traitify.com
+	- https://student12.traitify.com/developer 
+	- https://github.com/traitify/traitify-js-widgets
+	- https://github.com/traitify/traitify-js-client
+	- traitify.com
 
 ## Functional Components
 
@@ -45,17 +45,17 @@ Use this section to document all helper functions. These functions should be ver
 ## JSON Data Keys
  Use this section to list specific JSON Data Key mappings.  
  	**Obtain your authorization keys**
- 		..* public     399c11fc4bb447b9d67d175d88
-		..* secret    xxxxxxxxx8c8a
+ 		- public     399c11fc4bb447b9d67d175d88
+		- secret    xxxxxxxxx8c8a
 
 	**Use code in terminal to get authorization results**
-      ..* curl https://api-sandbox.traitify.com/v1/assessments \
+      - curl https://api-sandbox.traitify.com/v1/assessments \
 		-H "Content-Type: application/json" \
 		-u 508f7a24948e461475c8858c8a:x \
 		-d '{"deck_id": "career-deck"}'
 
     **Response should look like**
-		..* {"id":"17e5bb42-f56f-46b8-aeb3-9f70bd5bd298","deck_id":"career-deck","completed_at":null,"created_at":1480380408773,"locale_key":"en-US","profile_id":"990a4599-412c-4054-9a3a-0ba9e11a9ef7"}
+		- {"id":"17e5bb42-f56f-46b8-aeb3-9f70bd5bd298","deck_id":"career-deck","completed_at":null,"created_at":1480380408773,"locale_key":"en-US","profile_id":"990a4599-412c-4054-9a3a-0ba9e11a9ef7"}
 
 ## jQuery Functional Requirements
  Use this section to list some, but not all, of the jQuery methods discovered while working on this project.
