@@ -7,22 +7,25 @@ font-family: 'Titillium Web', sans-serif;
 	padding-bottom: 30px;
 	max-width: 90%;
 	background-image: url("");
-	background-color:#4b4c4f;
+	background-color:#580D98;
 
 
 }
 .title {
-	font-size: 70px;
-color: white;
+	font-size: 90px;
+	color: #e8eaed;
+
 }
 .sub-title {
 	font-size: 20px;
-	color: white;
+	color: #e8eaed;
 }
 .header {
 	font-family: 'Titillium Web', sans-serif;
-	
 	padding-bottom: 10px;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 
 }
 #ui {
@@ -35,22 +38,24 @@ color: white;
 #meBtn {
 	background-color: rgb(14, 224, 189);
 	color: white;
-	width: 45%;
+	width: 48%;
 	margin-top: 10px;
+	margin-right: 10px;
 }
 #notMeBtn {
 	background-color: rgb(23, 174, 231);
 	color: white;
-	width: 45%;
+	width: 48%;
 	margin-top: 10px;
 }
 .caption_div {
 	font-family: 'Titillium Web', sans-serif;
-	background-color: #aaa;
+	background-color: #580D98;
 	color: white;
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
+
 #percentage-bar {
 	background-color: rgb(23, 174, 231);
 }
@@ -61,11 +66,19 @@ color: white;
 	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 	max-width: 90%;
 }
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
 /****** LOGIN MODAL ******/
+.login{
+	font-size: 25px;
+	font-family: 'Titillium Web', sans-serif;
+	color: white;
+	margin-top: 10px;
+
+}
 
 .loginmodal-container {
 	padding: 30px;

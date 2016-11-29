@@ -50,7 +50,7 @@
 </head>
 <body>
   <div class="container">
-    <a data-target="#login-modal" data-toggle="modal" href="#">Login</a>
+    <a class="login" data-target="#login-modal" data-toggle="modal" href="#">LOGIN</a>
     <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="login-modal" role="dialog" style="display: none;" tabindex="-1">
       <div class="modal-dialog">
         <div class="loginmodal-container">
@@ -70,17 +70,21 @@
     </div>
     <section>
       <div id="ui">
+
+        <div class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" id="trait-carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" id="slides-target" role="listbox"></div>
+        </div>
+        <div class="slide-progress">
         <p class="text-center">Slide #<span id="current-slide-position">1</span> of <span id="total-slides">0</span></p>
         <div class="progress">
           <div class="progress-bar progress-bar-striped active" id="percentage-bar" role="progressbar" style="width: 30%">
             <span id="slide-percentage">0</span>% Complete
           </div>
-        </div><!-- <div class="row"> -->
-        <div class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" id="trait-carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" id="slides-target" role="listbox"></div>
-        </div><!--  </div> -->
-        <!-- </div> -->
+        </div>
+        </div>
+       
       </div>
     </section>
     <section>
